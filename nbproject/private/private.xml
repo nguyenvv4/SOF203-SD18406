@@ -2,6 +2,12 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/Users/nguyenvv/Desktop/Java_3/SOF203-SD18406/src/sof203/sd18406/view/SanPhamView.java</file>
+            <file>file:/Users/nguyenvv/Desktop/Java_3/SOF203-SD18406/src/sof203/sd18406/service/SanPhamService.java</file>
+            <file>file:/Users/nguyenvv/Desktop/Java_3/SOF203-SD18406/src/sof203/sd18406/view/HoaDonView.java</file>
+            <file>file:/Users/nguyenvv/Desktop/Java_3/SOF203-SD18406/src/sof203/sd18406/entity/SanPham.java</file>
+            <file>file:/Users/nguyenvv/Desktop/Java_3/SOF203-SD18406/src/sof203/sd18406/entity/HoaDon.java</file>
+        </group>
     </open-files>
 </project-private>
