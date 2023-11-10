@@ -237,8 +237,10 @@ public class SanPhamView extends javax.swing.JFrame {
         // TODO add your handling code here:
         String min = txtGiaMin.getText();
         String max = txtGiaMax.getText();
-        ArrayList<SanPham> list = sanPhamService.search(Integer.parseInt(min),
-                Integer.parseInt(max));
+        ArrayList<SanPham> list = sanPhamService.search(
+                Integer.parseInt(min),
+                Integer.parseInt(max)
+        );
         loadData(list);
     }//GEN-LAST:event_jButton3MouseClicked
 

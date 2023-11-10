@@ -20,7 +20,7 @@ public class HoaDonView extends javax.swing.JFrame {
      * Creates new form HoaDonView
      */
     HoaDonService hoaDonService = new HoaDonService();
-    
+
     public HoaDonView() {
         initComponents();
     }
@@ -63,13 +63,13 @@ public class HoaDonView extends javax.swing.JFrame {
 
         tblHoaDon.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Ho Ten", "So Luong", "Loai Ve", "Thanh Tien"
+                "Id", "Ho Ten", "So Luong", "Loai Ve", "Thanh Tien"
             }
         ));
         tblHoaDon.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -190,17 +190,17 @@ public class HoaDonView extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_btnLoadDataMouseClicked
-    
+
 
     private void btnAddMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddMouseClicked
         // TODO add your handling code here:
-        String ten = txtHoTen.getText();
-        String loaiVe = (String) cboLoaiVe.getSelectedItem();
-        Integer soLuong = Integer.parseInt(txtSoLuong.getText());
-        HoaDon hoaDon = new HoaDon(ten, soLuong, loaiVe);
-        String kq = hoaDonService.addNew(hoaDon);
-        JOptionPane.showMessageDialog(this, kq);
-        loadData(hoaDonService.getList());
+//        String ten = txtHoTen.getText();
+//        String loaiVe = (String) cboLoaiVe.getSelectedItem();
+//        Integer soLuong = Integer.parseInt(txtSoLuong.getText());
+//        HoaDon hoaDon = new HoaDon(ten, soLuong, loaiVe);
+//        String kq = hoaDonService.addNew(hoaDon);
+//        JOptionPane.showMessageDialog(this, kq);
+//        loadData(hoaDonService.getList());
     }//GEN-LAST:event_btnAddMouseClicked
 
     private void tblHoaDonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblHoaDonMouseClicked
@@ -215,13 +215,13 @@ public class HoaDonView extends javax.swing.JFrame {
 
     private void btnSearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSearchMouseClicked
         // TODO add your handling code here:
-        String ten = txtHoTen.getText();
-        ArrayList<HoaDon> list = hoaDonService.searchByName(ten);
-        if (list.size() == 0) {
-            JOptionPane.showMessageDialog(this, "Khong tim thay ket qua");
-        }else{
-            loadData(list);
-        }
+//        String ten = txtHoTen.getText();
+//        ArrayList<HoaDon> list = hoaDonService.searchByName(ten);
+//        if (list.size() == 0) {
+//            JOptionPane.showMessageDialog(this, "Khong tim thay ket qua");
+//        } else {
+//            loadData(list);
+//        }
     }//GEN-LAST:event_btnSearchMouseClicked
 
     /**
@@ -280,6 +280,7 @@ public class HoaDonView extends javax.swing.JFrame {
         defaultTableModel.setRowCount(0);
         for (HoaDon hd : list) {
             defaultTableModel.addRow(new Object[]{
+                hd.getId(),
                 hd.getTen(),
                 hd.getSoLuong(),
                 hd.getLoaiVe(),

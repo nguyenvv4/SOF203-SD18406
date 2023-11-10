@@ -6,6 +6,7 @@ package sof203.sd18406.service;
 
 import java.util.ArrayList;
 import sof203.sd18406.entity.HoaDon;
+import sof203.sd18406.repository.HoaDonRepository;
 
 /**
  *
@@ -13,32 +14,24 @@ import sof203.sd18406.entity.HoaDon;
  */
 public class HoaDonService {
 
-    ArrayList<HoaDon> listHoaDon = new ArrayList();
-
-    public HoaDonService() {
-        listHoaDon.add(new HoaDon("Nguyen Van A", 5, "Hoc Lai"));
-        listHoaDon.add(new HoaDon("Nguyen Van B", 5, "Hoc Lai"));
-        listHoaDon.add(new HoaDon("Nguyen Van C", 5, "Hoc Di"));
-
-    }
+    HoaDonRepository hoaDonRepository = new HoaDonRepository();
 
     public ArrayList<HoaDon> getList() {
-        return listHoaDon;
+        return hoaDonRepository.getAll();
     }
 
-    public String addNew(HoaDon hoaDon) {
-        listHoaDon.add(hoaDon);
-        return "Them thanh cong";
-    }
-
-    public ArrayList<HoaDon> searchByName(String ten) {
-        ArrayList<HoaDon> kq = new ArrayList<>();
-        for (HoaDon hd : listHoaDon) {
-            if (hd.getTen().equals(ten)) {
-                kq.add(hd);
-            }
-        }
-        return kq;
-    }
-
+//    public String addNew(HoaDon hoaDon) {
+//        listHoaDon.add(hoaDon);
+//        return "Them thanh cong";
+//    }
+//
+//    public ArrayList<HoaDon> searchByName(String ten) {
+//        ArrayList<HoaDon> kq = new ArrayList<>();
+//        for (HoaDon hd : listHoaDon) {
+//            if (hd.getTen().equals(ten)) {
+//                kq.add(hd);
+//            }
+//        }
+//        return kq;
+//    }
 }
