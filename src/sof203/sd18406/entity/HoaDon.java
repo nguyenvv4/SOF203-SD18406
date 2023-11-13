@@ -11,12 +11,18 @@ package sof203.sd18406.entity;
 public class HoaDon {
 
     private Integer id;
-    
+
     private String ten;
 
     private Integer soLuong;
 
     private String loaiVe;
+
+    public HoaDon(String ten, Integer soLuong, String loaiVe) {
+        this.ten = ten;
+        this.soLuong = soLuong;
+        this.loaiVe = loaiVe;
+    }
 
     public HoaDon(Integer id, String ten, Integer soLuong, String loaiVe) {
         this.id = id;
@@ -25,12 +31,8 @@ public class HoaDon {
         this.loaiVe = loaiVe;
     }
 
-   
-
     public HoaDon() {
     }
-    
-    
 
     public Integer getId() {
         return id;
@@ -39,8 +41,6 @@ public class HoaDon {
     public void setId(Integer id) {
         this.id = id;
     }
-    
-    
 
     public String getTen() {
         return ten;
@@ -73,4 +73,11 @@ public class HoaDon {
             return soLuong * 100000;
         }
     }
+
+    @Override
+    public String toString() {
+        return "HoaDon{" + "id=" + id + ", ten=" + ten + ", soLuong=" + soLuong + ", loaiVe=" + loaiVe + '}';
+    }
+    
+    
 }

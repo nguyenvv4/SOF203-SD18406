@@ -36,4 +36,51 @@ public class HoaDonRepository {
         return list;
     }
 
+    public Boolean addNew(HoaDon hoaDon) {
+        String sql = "INSERT INTO HoaDon (Ten, SoLuong, LoaiVe) "
+                + "VALUES (?, ?, ?)";
+        try (Connection conn = dbConnection.getConnection();
+                PreparedStatement pst = conn.prepareStatement(sql)) {
+            pst.setObject(1, hoaDon.getTen());
+            pst.setObject(2, hoaDon.getSoLuong());
+            pst.setObject(3, hoaDon.getLoaiVe());
+            int kq = pst.executeUpdate();
+            return kq > 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+     public Boolean update(HoaDon hoaDon) {
+        String sql = "update HoaDon "
+                + " set Ten =?, SoLuong =?, LoaiVe =? where id =?";
+        try (Connection conn = dbConnection.getConnection();
+                PreparedStatement pst = conn.prepareStatement(sql)) {
+            pst.setObject(1, hoaDon.getTen());
+            pst.setObject(2, hoaDon.getSoLuong());
+            pst.setObject(3, hoaDon.getLoaiVe());
+            pst.setObject(4, hoaDon.getId());
+            int kq = pst.executeUpdate();
+            return kq > 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+    
+    public Boolean delete(String id) {
+        String sql = "delete from HoaDon where id = " + id;
+        try (Connection conn = dbConnection.getConnection();
+                PreparedStatement pst = conn.prepareStatement(sql)) {
+//            pst.setObject(1, id);
+            int kq = pst.executeUpdate();
+            return kq > 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+
+    }
+
 }

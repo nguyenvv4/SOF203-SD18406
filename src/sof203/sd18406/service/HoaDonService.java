@@ -20,10 +20,29 @@ public class HoaDonService {
         return hoaDonRepository.getAll();
     }
 
-//    public String addNew(HoaDon hoaDon) {
-//        listHoaDon.add(hoaDon);
-//        return "Them thanh cong";
-//    }
+    public String addNew(HoaDon hoaDon) {
+        if (hoaDonRepository.addNew(hoaDon) == true) {
+            return "Them thanh cong";
+        } else {
+            return "Them that bai";
+        }
+    }
+    public String update(HoaDon hoaDon) {
+        if (hoaDonRepository.update(hoaDon) == true) {
+            return "Update thanh cong";
+        } else {
+            return "Update that bai";
+        }
+    }
+
+    public String delete(String id) {
+        Boolean check = hoaDonRepository.delete(id);
+        if (check) {
+            return "Xoa thanh cong";
+        } else {
+            return "Xoa that bai";
+        }
+    }
 //
 //    public ArrayList<HoaDon> searchByName(String ten) {
 //        ArrayList<HoaDon> kq = new ArrayList<>();
