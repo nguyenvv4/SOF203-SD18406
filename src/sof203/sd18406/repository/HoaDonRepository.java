@@ -52,7 +52,7 @@ public class HoaDonRepository {
         return false;
     }
 
-     public Boolean update(HoaDon hoaDon) {
+    public Boolean update(HoaDon hoaDon) {
         String sql = "update HoaDon "
                 + " set Ten =?, SoLuong =?, LoaiVe =? where id =?";
         try (Connection conn = dbConnection.getConnection();
@@ -68,7 +68,7 @@ public class HoaDonRepository {
         }
         return false;
     }
-    
+
     public Boolean delete(String id) {
         String sql = "delete from HoaDon where id = " + id;
         try (Connection conn = dbConnection.getConnection();
@@ -81,6 +81,27 @@ public class HoaDonRepository {
         }
         return false;
 
+    }
+
+    public ArrayList<HoaDon> searchByName(String name) {
+        String sql = "select * from HoaDon "
+                + " WHERE Ten like  '%" + name + "%'";
+        ArrayList<HoaDon> list = new ArrayList<>();
+        try (Connection conn = dbConnection.getConnection();
+                PreparedStatement pst = conn.prepareStatement(sql)) {
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                Integer id = rs.getInt("Id");
+                String ten = rs.getString("Ten");
+                Integer soLuong = rs.getInt("SoLuong");
+                String loaiVe = rs.getString("LoaiVe");
+                HoaDon hoaDon = new HoaDon(id, ten, soLuong, loaiVe);
+                list.add(hoaDon);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
     }
 
 }

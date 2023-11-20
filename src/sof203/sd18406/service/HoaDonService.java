@@ -43,14 +43,9 @@ public class HoaDonService {
             return "Xoa that bai";
         }
     }
-//
-//    public ArrayList<HoaDon> searchByName(String ten) {
-//        ArrayList<HoaDon> kq = new ArrayList<>();
-//        for (HoaDon hd : listHoaDon) {
-//            if (hd.getTen().equals(ten)) {
-//                kq.add(hd);
-//            }
-//        }
-//        return kq;
-//    }
+
+    public ArrayList<HoaDon> searchByName(String ten) {
+        ArrayList<HoaDon> kq = hoaDonRepository.searchByName(ten);
+        return kq;
+    }
 }

@@ -122,7 +122,12 @@ public class HoaDonView extends javax.swing.JFrame {
 
         jLabel4.setText("ID");
 
-        jButton1.setText("jButton1");
+        jButton1.setText("Detail");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -263,13 +268,13 @@ public class HoaDonView extends javax.swing.JFrame {
 
     private void btnSearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSearchMouseClicked
         // TODO add your handling code here:
-//        String ten = txtHoTen.getText();
-//        ArrayList<HoaDon> list = hoaDonService.searchByName(ten);
-//        if (list.size() == 0) {
-//            JOptionPane.showMessageDialog(this, "Khong tim thay ket qua");
-//        } else {
-//            loadData(list);
-//        }
+        String ten = txtHoTen.getText();
+        ArrayList<HoaDon> list = hoaDonService.searchByName(ten);
+        if (list.size() == 0) {
+            JOptionPane.showMessageDialog(this, "Khong tim thay ket qua");
+        } else {
+            loadData(list);
+        }
     }//GEN-LAST:event_btnSearchMouseClicked
 
     private void btnDeleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDeleteMouseClicked
@@ -279,6 +284,16 @@ public class HoaDonView extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, ketQua);
         loadData(hoaDonService.getList());
     }//GEN-LAST:event_btnDeleteMouseClicked
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        // TODO add your handling code here:
+        int index = tblHoaDon.getSelectedRow();
+        HoaDon hoaDon = hoaDonService.getList().get(index);
+         Detail jFrame = new Detail(hoaDon);
+         jFrame.setVisible(true);
+         this.dispose();
+
+    }//GEN-LAST:event_jButton1MouseClicked
 
     /**
      * @param args the command line arguments
